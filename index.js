@@ -56,6 +56,7 @@ async function main() {
         // actions do not run on pushes made by actions.
         // need to make absolute sure things are good before pushing
         // TODO: is there a better way around this limitation?
+        await exec.exec('git', ['status'])
         await exec.exec('pre-commit', args);
 
         const diff = await exec.exec(
